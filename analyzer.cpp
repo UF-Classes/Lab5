@@ -42,17 +42,17 @@ int main()
     {
         cout << "Timing linear search for " << element << endl;
         long long startTime = systemTimeNanoseconds();
-        int index = linearSearch(words, element);
+        int index = linearSearch(wordList, element);
         long long endTime = systemTimeNanoseconds();
-        cout << "Found " << element << " at " << index << " in " << endTime - startTime << endl;
+        cout << "Found " << element << " at " << index << " in " << (endTime - startTime) << endl;
     }
-
+    cout << endl << endl;
     for (string word: words)
     {
         cout << "Timing binary search for " << word << " element" << endl;
         long long startTime = systemTimeNanoseconds();
         int index = binarySearch(wordList, word);
         long long endTime = systemTimeNanoseconds();
-        cout << "Found " << word << " at " << index << " in " << (endTime - startTime) / 1000000000.0L << "s" << endl;
+        cout << "Found " << word << " at " << index << " in " << (endTime - startTime) << "s" << endl;
     }
 }
