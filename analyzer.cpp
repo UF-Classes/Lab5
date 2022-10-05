@@ -25,23 +25,34 @@ int binarySearch(vector<string> container, string element){
 }
 
 
-int linearSearch(vector<string> container, string element){
-
+int linearSearch(vector<string> container, string element) {
+    for (int i = 0; i < container.size(); i++)
+        if (container[i] == element)
+            return i;
+    return -1;
 }
 
 
-int main(){
+int main()
+{
     vector<string> words = {"not_here", "mzzzz", "aaaaa"};
     vector<string> wordList = getStringData();
 
-    for (string word : words) {
+    for (string element: {"not_here", "mzzzz", "aaaaa"})
+    {
+        cout << "Timing linear search for " << element << endl;
+        long long startTime = systemTimeNanoseconds();
+        int index = linearSearch(words, element);
+        long long endTime = systemTimeNanoseconds();
+        cout << "Found " << element << " at " << index << " in " << endTime - startTime << endl;
+    }
+
+    for (string word: words)
+    {
         cout << "Timing binary search for " << word << " element" << endl;
         long long startTime = systemTimeNanoseconds();
         int index = binarySearch(wordList, word);
         long long endTime = systemTimeNanoseconds();
         cout << "Found " << word << " at " << index << " in " << (endTime - startTime) / 1000000000.0L << "s" << endl;
     }
-
-
-    return 0;
 }

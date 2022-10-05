@@ -18,7 +18,6 @@ inline std::vector<std::string>& getStringData()
     if (stringDataSet.size() == 0)
     {
         char tempSet[6] = "     ";
-
         for (tempSet[0] = 'a'; tempSet[0] <= 'z'; tempSet[0]++)
             for (tempSet[1] = 'a'; tempSet[1] <= 'z'; tempSet[1]++)
                 for (tempSet[2] = 'a'; tempSet[2] <= 'z'; tempSet[2]++)
@@ -26,6 +25,5 @@ inline std::vector<std::string>& getStringData()
                         for (tempSet[4] = 'a'; tempSet[4] <= 'z'; tempSet[4]++)
                             stringDataSet.push_back(std::string(tempSet));
     }
-
     return stringDataSet;
 }
